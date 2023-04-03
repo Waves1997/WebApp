@@ -1,5 +1,6 @@
 package com.example.webapp.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.webapp.controller.Code;
 import com.example.webapp.dao.BookDao;
 import com.example.webapp.domain.Book;
@@ -10,8 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author waves
+ */
 @Service
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements BookService {
     @Autowired
     private BookDao bookDao;
 

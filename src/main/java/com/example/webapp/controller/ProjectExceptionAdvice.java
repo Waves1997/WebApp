@@ -22,6 +22,7 @@ public class ProjectExceptionAdvice {
 
     @ExceptionHandler(Exception.class)
     public Result doOtherException(Exception ex){
+        System.out.println(ex);
         //记录日志
         //发送消息给运维
         //发送邮件给开发人员,ex对象发送给开发人员

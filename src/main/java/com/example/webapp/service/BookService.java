@@ -1,12 +1,15 @@
 package com.example.webapp.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.Query;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.webapp.domain.Book;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Transactional
-public interface BookService {
+public interface BookService extends IService<Book> {
 
     /**
      * 保存

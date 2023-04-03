@@ -7,7 +7,9 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
-// TODO 添加@Mapper
+/**
+ * @author waves
+ */
 @Mapper
 public interface BookDao extends BaseMapper<Book> {
 }
