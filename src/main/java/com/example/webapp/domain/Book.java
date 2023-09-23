@@ -1,21 +1,40 @@
 package com.example.webapp.domain;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
 import lombok.Data;
 
+/**
+ * 
+ * @TableName t_book
+ */
+@TableName(value ="t_book")
 @Data
-@ApiModel(value = "Book", description = "图书")
-public class Book {
-    @ApiModelProperty("ID")
+public class Book implements Serializable {
+    /**
+     * 
+     */
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty("类型")
+    /**
+     * 
+     */
     private String type;
 
-    @ApiModelProperty("名称")
+    /**
+     * 
+     */
     private String name;
 
-    @ApiModelProperty("描述")
+    /**
+     * 
+     */
     private String description;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 }

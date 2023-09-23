@@ -32,14 +32,14 @@ public class BookController {
     @PutMapping
     @ApiOperation(value = "新建图书",httpMethod = "PUT")
     public Result update(@RequestBody Book book) {
-        boolean flag = bookService.update(book);
+        boolean flag = bookService.updateById(book);
         return new Result(flag ? Code.UPDATE_OK : Code.UPDATE_ERR, flag);
     }
 
     @DeleteMapping("/{id}")
     @ApiOperation(value = "新建图书",httpMethod = "POST")
     public Result delete(@PathVariable Integer id) {
-        boolean flag = bookService.delete(id);
+        boolean flag = bookService.removeById(id);
         return new Result(flag ? Code.DELETE_OK : Code.DELETE_ERR, flag);
     }
 
@@ -61,7 +61,7 @@ public class BookController {
     @GetMapping
     @ApiOperation(value = "新建图书",httpMethod = "POST")
     public Result getAll() {
-        List<Book> bookList = bookService.getAll();
+        List<Book> bookList = bookService.list();
         Integer code = bookList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = bookList != null ? "" : "数据查询失败，请重试！";
         return new Result(code, bookList, msg);

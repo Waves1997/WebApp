@@ -30,6 +30,16 @@ public class User implements Serializable {
      */
     private String gender;
 
+    /**
+     * 年龄
+     */
+    private Integer age;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }
