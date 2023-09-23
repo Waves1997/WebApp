@@ -1,18 +1,21 @@
 package com.example.webapp.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 
 @Data
+@ApiModel(value = "Book", description = "图书")
 public class Book {
+    @ApiModelProperty("ID")
     private Integer id;
+
+    @ApiModelProperty("类型")
     private String type;
+
+    @ApiModelProperty("名称")
     private String name;
+
+    @ApiModelProperty("描述")
     private String description;
 }

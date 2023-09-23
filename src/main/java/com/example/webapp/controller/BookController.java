@@ -6,6 +6,9 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.webapp.domain.Book;
 import com.example.webapp.service.BookService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,23 +17,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/books")
+@Api(tags = "图书控制层")
 public class BookController {
     @Autowired
     private BookService bookService;
 
     @PostMapping
-    public Result save(@RequestBody Book book) {
+    @ApiOperation(value = "新建图书",httpMethod = "POST")
+    public Result save(@ApiParam(value = "图书(book)", required = true) @RequestBody Book book) {
         boolean flag = bookService.save(book);
         return new Result(flag ? Code.SAVE_OK : Code.SAVE_ERR, flag);
     }
 
     @PutMapping
+    @ApiOperation(value = "新建图书",httpMethod = "PUT")
     public Result update(@RequestBody Book book) {
         boolean flag = bookService.update(book);
         return new Result(flag ? Code.UPDATE_OK : Code.UPDATE_ERR, flag);
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation(value = "新建图书",httpMethod = "POST")
     public Result delete(@PathVariable Integer id) {
         boolean flag = bookService.delete(id);
         return new Result(flag ? Code.DELETE_OK : Code.DELETE_ERR, flag);
@@ -43,6 +50,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
+    @ApiOperation(value = "新建图书",httpMethod = "POST")
     public Result getById(@PathVariable Integer id) {
         Book book = bookService.getById(id);
         Integer code = book != null ? Code.GET_OK : Code.GET_ERR;
@@ -51,6 +59,7 @@ public class BookController {
     }
 
     @GetMapping
+    @ApiOperation(value = "新建图书",httpMethod = "POST")
     public Result getAll() {
         List<Book> bookList = bookService.getAll();
         Integer code = bookList != null ? Code.GET_OK : Code.GET_ERR;
