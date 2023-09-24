@@ -4,22 +4,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
 import java.io.Serializable;
-
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
-import com.example.webapp.domain.po.UserInfo;
-import com.example.webapp.enums.UserStatus;
 import lombok.Data;
 
 /**
- * 用户表
- *
- * @TableName t_user
+ * 地址
+ * @TableName t_address
  */
-@TableName(value = "t_user", autoResultMap = true)
+@TableName(value ="t_address")
 @Data
-public class User implements Serializable {
+public class Address implements Serializable {
     /**
      * ID
      */
@@ -27,30 +21,44 @@ public class User implements Serializable {
     private Long id;
 
     /**
-     * 姓名
+     * 用户ID
      */
-    private String name;
+    private Long userId;
 
     /**
-     * 详细信息
+     * 省份
      */
-    @TableField(typeHandler = JacksonTypeHandler.class)
-    private UserInfo info;
+    private String province;
 
     /**
-     * 年龄
+     * 城市
      */
-    private Integer age;
+    private String city;
 
     /**
-     * 邮箱
+     * 详细地址
      */
-    private String email;
+    private String town;
 
     /**
-     * 状态
+     * 联系人
      */
-    private UserStatus status;
+    private String contact;
+
+    /**
+     * 手机号
+     */
+    private String mobile;
+
+    /**
+     * 是否默认
+     */
+    private Integer isDefault;
+
+    /**
+     * 是否删除
+     */
+    private Boolean deleted;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

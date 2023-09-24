@@ -2,7 +2,11 @@ package com.example.webapp.service;
 
 import com.example.webapp.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.webapp.domain.query.UserAgeRangeQuery;
+import com.example.webapp.domain.vo.UserVO;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author 13505
@@ -11,4 +15,7 @@ import org.springframework.stereotype.Service;
 */
 public interface UserService extends IService<User> {
 
+    List<User> getUsers(UserAgeRangeQuery query);
+
+    UserVO getUserById(Long id);
 }

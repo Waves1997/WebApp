@@ -7,13 +7,18 @@
     <resultMap id="BaseResultMap" type="com.example.webapp.domain.User">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="gender" column="gender" jdbcType="VARCHAR"/>
+            <result property="info" column="info" jdbcType="VARCHAR" typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
             <result property="age" column="age" jdbcType="INTEGER"/>
             <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,name,gender,
+        id,name,info,
         age,email
     </sql>
+
+    <update id="updateAge">
+        UPDATE t_user SET age = age + #{inc} ${ew.customSqlSegment}
+    </update>
 </mapper>
